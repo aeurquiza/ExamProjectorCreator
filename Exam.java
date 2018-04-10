@@ -137,4 +137,14 @@ public class Exam {
             fin.nextLine();
         }
     }
+
+
+    public String storeScoreToCSV() {
+        String s="";
+        for(int i=0; i<questions.size();i++) {
+
+            s += "Question #" + (i + 1) + " | Score: " + questions.get(i).getValue() + ",";
+        }
+        return s;
+    }
 }
