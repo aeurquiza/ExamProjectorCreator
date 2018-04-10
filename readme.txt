@@ -1,5 +1,5 @@
 Name: Allan Velednitskiy, Arturo Urquiza, Marquise Howard
-Net ID: avele2, aurqui8, mhowar27
+Net ID: aveled2, aurqui8, mhowar27
 Class: CS 342
 
 
