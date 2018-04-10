@@ -1,10 +1,18 @@
+import java.util.Scanner;
+import java.io.PrintWriter;
+
 public class NumAnswer extends Answer
 {
-    protected Number value;
+    protected double value;
 
-    public NumAnswer(Number value)
+    public NumAnswer(double value)
     {
         this.value = value;
+    }
+
+    public NumAnswer(Scanner scanner){
+        value=scanner.nextDouble();
+        scanner.nextLine();
     }
 
     public void print()
@@ -17,7 +25,7 @@ public class NumAnswer extends Answer
         if( rightAnswer instanceof NumAnswer )
         {
             NumAnswer correctAnswer = (NumAnswer)rightAnswer;
-            if( correctAnswer == rightAnswer )
+            if( correctAnswer.value == correctAnswer.value )
             {
                 return 1.0;
             }
@@ -25,6 +33,18 @@ public class NumAnswer extends Answer
 
         return 0.0;
     }
+
+
+    public void save(PrintWriter writer)
+    {
+        writer.println(value);
+    }
+
+    public void saveStudentAnswer(PrintWriter writer)
+    {
+        writer.println(value);
+    }
+
 
     public static void main(String args[])
     {
