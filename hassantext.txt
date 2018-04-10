@@ -1,0 +1,27 @@
+Sample Exam Title
+
+MCSAQuestion
+5.0
+What do you put on a peanut butter and jelly sandwich?
+5
+0.0  Horseradish
+1.0  Peanut
+0.5  Jelly
+0.5  Peanut
+0.0  Onions
+
+MCMAQuestion
+5.0
+Is hassan a bitch?
+0.4
+4
+0.5 yes
+0.0 no
+0.2 maybe
+0.1 Who knows?
+
+SAQuestion
+5.0
+What OO principle is implemented with private variables?
+Information Hiding
+
