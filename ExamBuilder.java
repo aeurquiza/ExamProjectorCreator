@@ -4,8 +4,6 @@ import java.io.PrintWriter;
 
 public class ExamBuilder{
 	public static void main(String[] args){
-		//File redirect = new File(args[0]);
-
 		Exam test=null;
 		Scanner kin=new Scanner(System.in); 
 

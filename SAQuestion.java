@@ -16,7 +16,7 @@ public class SAQuestion extends Question
 
     public Answer getNewAnswer()
     {
-        SAAnswer answer = new SAAnswer("");
+        SAAnswer answer = new SAAnswer("emptyAnswerEmptyAnswer");
         // contents.add(answer);
         return answer;
     }
@@ -30,8 +30,6 @@ public class SAQuestion extends Question
 
     public void getAnswerFromStudent()
     {
-        System.out.println( text );
-        System.out.print("  Enter answer: ");
         Scanner client = new Scanner(System.in);
         String input = client.nextLine();
         studentAnswer = getNewAnswer(input);
@@ -40,6 +38,24 @@ public class SAQuestion extends Question
     public double getValue()
     {
         return super.getValue();
+    }
+
+    protected void printStudentAnswers()
+    {
+        if(studentAnswer == null)
+        {
+            System.out.println("Your answer:");
+            System.out.println("    You have not answered this question");
+            return;
+        }
+
+        if(studentAnswer instanceof SAAnswer)
+        {
+            SAAnswer ans = (SAAnswer)studentAnswer;
+            System.out.println("Your answer:");
+            System.out.println("    "  + ans.text);
+        }
+
     }
 
     public static void main(String[] args)
@@ -66,6 +82,8 @@ public class SAQuestion extends Question
     {
         if(studentAnswer == null)
         {
+            writer.println("SAAnswer");
+            getNewAnswer().save(writer);
             return;
         }
         

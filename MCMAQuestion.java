@@ -31,7 +31,7 @@ public class MCMAQuestion extends MCQuestion
 
     public Answer getNewAnswer()
     {
-        return new MCMAAnswer("", 0.0);
+        return new MCMAAnswer("emptyAnswerEmptyAnswer", 0.0);
     }
 
     public Answer getNewAnswer(String text)
@@ -83,9 +83,35 @@ public class MCMAQuestion extends MCQuestion
         return total_value;
     }
 
+    protected void printStudentAnswers()
+    {
+        if(studentAnswers == null)
+        {
+            System.out.println("Your answer:");
+            System.out.println("    You have not answered this question");
+            return;
+        }
+
+        MCMAAnswer answer;
+        System.out.println("Your answer:");
+
+        if(studentAnswers.size() == 0)
+        {
+            System.out.println("    You have not answered this question");
+        }
+
+        for(int i = 0; i < studentAnswers.size(); ++i)
+        {
+            answer = (MCMAAnswer)studentAnswers.get(i);
+            System.out.println("    "  + answer.text);
+            
+        }
+
+    }
+
     public void save(PrintWriter writer)
     {
-        writer.println("MCMAQuestion");
+        writer.println("MCMAAnswer");
         writer.println(maxValue);
         writer.println(text);
         writer.println(baseCredit);
@@ -103,7 +129,7 @@ public class MCMAQuestion extends MCQuestion
 
     public void saveStudentAnswer(PrintWriter writer)
     {
-        writer.println("MCMAQuestion");
+        writer.println("MCMAAnswer");
         writer.println(studentAnswers.size());
         
         for(int i = 0; i < studentAnswers.size(); ++i)

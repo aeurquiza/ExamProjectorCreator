@@ -24,7 +24,7 @@ public class ExamGrader {
                 aInput = new Scanner(new File(fAns));
 
             } catch (Exception e) {
-                System.out.println("File not found!!!");
+                System.out.println("File not found!");
             }
 
             //---------------------------------------
@@ -40,7 +40,7 @@ public class ExamGrader {
                 eInput = new Scanner(new File(examFileName));
 
             } catch (Exception e) {
-                System.out.println("File not found......");
+                System.out.println("File not found..");
             }
 
             Exam newExam = new Exam(eInput);
@@ -50,8 +50,9 @@ public class ExamGrader {
 
             //---------------------------------------
 
+
             Scanner kin = new Scanner(System.in);
-            System.out.println("Enter CSV File to print scores to:");
+            System.out.println("Enter CSV File to print scores to");
             String writeFile = kin.nextLine();
             PrintWriter pw = null;
 

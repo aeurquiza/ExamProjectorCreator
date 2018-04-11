@@ -22,22 +22,19 @@ public class MCSAQuestion extends MCQuestion
 
     public MCSAAnswer getNewAnswer()
     {
-        MCSAAnswer answer = new MCSAAnswer("", 0.0);
-        //answers.add(answer);
+        MCSAAnswer answer = new MCSAAnswer("emptyAnswerEmptyAnswer", 0.0);
         return answer;
     }
 
     public MCSAAnswer getNewAnswer(String text)
     {
         MCSAAnswer answer = new MCSAAnswer(text, 0.0);
-        //answers.add(answer);
         return answer;
     }
 
     public MCSAAnswer getNewAnswer(String text, double creditIfSelected)
     {
         MCSAAnswer answer = new MCSAAnswer(text, creditIfSelected);
-        //answers.add(answer);
         return answer;
     }
 
@@ -72,9 +69,25 @@ public class MCSAQuestion extends MCQuestion
             return (answer.getCredit(rightAnswer) * answer.creditIfSelected);
         }
 
-
-
         return 0.0;
+    }
+
+    protected void printStudentAnswers()
+    {
+        if(studentAnswer == null)
+        {
+            System.out.println("Your answer:");
+            System.out.println("    You have not answered this question");
+            return;
+        }
+
+        if(studentAnswer instanceof MCSAAnswer)
+        {
+            MCSAAnswer ans = (MCSAAnswer)studentAnswer;
+            System.out.println("Your answer:");
+            System.out.println("    "  + ans.text);
+        }
+
     }
 
     public void save(PrintWriter writer)
@@ -94,10 +107,12 @@ public class MCSAQuestion extends MCQuestion
     {
         if(studentAnswer == null)
         {
+            writer.println("MCSAAnswer");
+            getNewAnswer().save(writer);
             return;
         }
 
-        writer.println("SAAnswer");
+        writer.println("MCSAAnswer");
         studentAnswer.save(writer);
     }
     

@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;
@@ -10,6 +11,7 @@ public class ExamTaker
     private static boolean mLooping;
     private static Exam mExam;
     private static PrintWriter mClientAnswers;
+    public static ArrayList<String> mStudentAnswers;
 
     private static void handleCommand(String command)
     {
@@ -23,7 +25,8 @@ public class ExamTaker
 
             case "exam":
                 System.out.print("Enter the name of the exam file: ");
-                File f = new File(mClientInput.nextLine());
+                mExamName = mClientInput.nextLine();
+                File f = new File(mExamName);
                 
                 try
                 {
@@ -52,8 +55,7 @@ public class ExamTaker
                     break;
                 }
 
-                System.out.print("Please enter the question number you want to answer: ");
-                mExam.getAnswerFromStudent(mClientInput.nextInt() - 1);
+                mExam.getAnswersForExamTaker();
                 break;
 
             case "save":
@@ -82,9 +84,18 @@ public class ExamTaker
                     }
                 }
 
+                mExam.printStudentAnswers();
+
                 if(mClientAnswers != null)
                 {
-                    mClientAnswers.println(mClientName + "\n");
+                    System.out.println("Are you sure you want to save these answers? (answer <Yes> if you do)");
+                    if(mClientInput.nextLine().toLowerCase().trim() != "yes")
+                    {
+                        break;
+                    }
+
+                    mClientAnswers.println(mClientName);
+                    mClientAnswers.println(mExamName);
                     mExam.saveStudentAnswers(mClientAnswers);
                     mClientAnswers.flush();
                     System.out.println("Answers saved!");
@@ -115,15 +126,17 @@ public class ExamTaker
             "Quit: Quits the program"
         };
 
-        System.out.println("Enter one of the following commands");
-
-        for(int i = 0; i < commands.length; i++)
-        {
-            System.out.println("    " + commands[i]);
-        }
 
         while(mLooping)
         {
+            System.out.println("Enter one of the following commands");
+
+            for(int i = 0; i < commands.length; i++)
+            {
+                System.out.println("    " + commands[i]);
+            }
+            System.out.println("\n");
+            
             System.out.print("Enter command: ");
             handleCommand( mClientInput.nextLine() );
         }

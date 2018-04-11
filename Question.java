@@ -37,6 +37,11 @@ public abstract class Question
 
     }
 
+    protected void printStudentAnswers()
+    {
+       System.out.println("     You have not answered this question");
+    }
+
     public void setRightAnswer(Answer rightAnswer)
     {
         this.rightAnswer = rightAnswer;
