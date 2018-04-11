@@ -43,6 +43,6 @@ Exam Grader will input both the exam and student answers and make sure to compar
 Then it will evaluate the answers and display them on the screen.
 Then there will be a prompt for the user to enter the name of a CSV file they want to store the data in.
 
-Allan - ExamBGrader
+Allan - ExamGrader
 Arturo - ExamBuilder
 Marquise - ExamTaker
