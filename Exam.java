@@ -14,6 +14,7 @@ public class Exam {
 
     public Exam(Scanner fin){
         title=fin.nextLine();
+        fin.nextLine();
         questions = new ArrayList<Question>(1);
         while(fin.hasNextLine()){
             String line=fin.nextLine().trim();
@@ -101,7 +102,7 @@ public class Exam {
 
 
     public void save(PrintWriter pw){
-        pw.write(title+"\n\n");
+        pw.write(title+"\n"+(new Date()).toString()+"\n\n");
         for(Question ques: questions){
             ques.save(pw);
             pw.write("\n");

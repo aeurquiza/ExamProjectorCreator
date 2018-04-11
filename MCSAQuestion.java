@@ -23,21 +23,21 @@ public class MCSAQuestion extends MCQuestion
     public MCSAAnswer getNewAnswer()
     {
         MCSAAnswer answer = new MCSAAnswer("", 0.0);
-        answers.add(answer);
+        //answers.add(answer);
         return answer;
     }
 
     public MCSAAnswer getNewAnswer(String text)
     {
         MCSAAnswer answer = new MCSAAnswer(text, 0.0);
-        answers.add(answer);
+        //answers.add(answer);
         return answer;
     }
 
     public MCSAAnswer getNewAnswer(String text, double creditIfSelected)
     {
         MCSAAnswer answer = new MCSAAnswer(text, creditIfSelected);
-        answers.add(answer);
+        //answers.add(answer);
         return answer;
     }
 

@@ -1,0 +1,30 @@
+Hassan Sucks
+Tue Apr 10 19:01:27 CDT 2018
+
+MCMAQuestion
+5.0
+Is hassan a bitch?
+0.4
+3
+0.3 Yes
+0.0 No
+0.3 Maybe
+
+SAQuestion
+5.0
+Who created C++?
+Stroustroup
+
+MCSAQuestion
+5.0
+Who won the last champions league?
+8
+1.0 Real Madrid
+1.0 Real Madrid
+0.0 Barcelona
+0.0 Barcelona
+0.0 Bayern Munchen
+0.0 Bayern Munchen
+0.0 Juventus
+0.0 Juventus
+

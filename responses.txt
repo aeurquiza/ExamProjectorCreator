@@ -1,0 +1,16 @@
+Arturo Urquiza
+ExamCopy.txt
+
+
+MCSAAnswer 
+0.5 Jelly
+
+MCMAAnswer
+3
+0.2 Tom
+0.2 Rubeus
+-0.2 Princess
+
+SAAnswer
+Information Hiding
+
