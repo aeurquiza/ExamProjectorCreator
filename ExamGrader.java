@@ -25,7 +25,7 @@ public class ExamGrader {
                 aInput = new Scanner(new File(fAns));
             } catch (Exception e) {
 
-                System.out.println("File not found.");
+                System.out.println("File not found!!!");
             }
 
             //---------------------------------------
@@ -42,7 +42,7 @@ public class ExamGrader {
                 eInput = new Scanner(new File(examFileName));
             } catch (Exception e) {
 
-                System.out.println("File not found.");
+                System.out.println("File not found......");
             }
 
             Exam newExam = new Exam(eInput);
@@ -58,9 +58,10 @@ public class ExamGrader {
             } catch (Exception e) {
                 System.out.println("File not found");
             }
-            pw.print(name + ",");
-            pw.print(newExam.getValue() + ",");
+            pw.print("Name: " + name + ", ");
+            pw.print("Total: " + newExam.getValue() + ", ");
             pw.print(newExam.storeScoreToCSV());
+            pw.close();
 
             System.out.println("Enter q to quit..");
             q = kin.nextLine();
