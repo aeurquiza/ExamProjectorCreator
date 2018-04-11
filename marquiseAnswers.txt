@@ -1,12 +1,14 @@
-Marquise
+marquise
+ExamCopy.txt
+Tue Apr 10 23:31:34 GMT 2018
 
-MCSAAnswer 
-SAAnswer
+MCSAAnswer
 1.0  Peanut
+
 MCMAAnswer
-MCMAQuestion
-1
+2
+0.2  Rubeus
 0.2  Harry
+
 SAAnswer
-SAAnswer
-Arturo is a bitch
+Information Hiding

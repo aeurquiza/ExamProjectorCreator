@@ -130,6 +130,23 @@ public class Exam {
             }
     }
 
+    public void restoreStudentAnswers(Scanner scanner)
+    {
+        scanner.nextLine();
+        scanner.nextLine();
+        scanner.nextLine();
+
+        for(int i = 0; i < questions.size(); ++i)
+        {
+            questions.get(i).restoreStudentAnswers(scanner);
+            if(scanner.hasNext())
+            {
+                scanner.nextLine();
+            }
+        }
+    }
+
+    /*
     public void restoreStudentAnswers(Scanner fin){
         fin.nextLine();
         fin.nextLine();
@@ -138,13 +155,14 @@ public class Exam {
             fin.nextLine();
         }
     }
+    */
 
 
     public String storeScoreToCSV() {
         String s="";
         for(int i=0; i<questions.size();i++) {
 
-            s += "Question #" + (i + 1) + " | Score: " + questions.get(i).getValue() + ",";
+            s += "Question #" + (i + 1) + " Score: " + questions.get(i).getValue() + ", ";
         }
         return s;
     }
