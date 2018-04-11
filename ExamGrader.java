@@ -21,10 +21,9 @@ public class ExamGrader {
             fAns = userInputScanner1.getKeyboardScanner().nextLine();
 
             try {
-
                 aInput = new Scanner(new File(fAns));
-            } catch (Exception e) {
 
+            } catch (Exception e) {
                 System.out.println("File not found!!!");
             }
 
@@ -38,10 +37,9 @@ public class ExamGrader {
             //String fExam = null;
 
             try {
-
                 eInput = new Scanner(new File(examFileName));
-            } catch (Exception e) {
 
+            } catch (Exception e) {
                 System.out.println("File not found......");
             }
 
@@ -49,15 +47,21 @@ public class ExamGrader {
 
             newExam.restoreStudentAnswers(aInput);
             newExam.reportQuestionValues();
+
+            //---------------------------------------
+
             Scanner kin = new Scanner(System.in);
-            System.out.println("Enter File to print scores to");
+            System.out.println("Enter CSV File to print scores to:");
             String writeFile = kin.nextLine();
             PrintWriter pw = null;
+
             try {
                 pw = new PrintWriter(new File(writeFile));
+
             } catch (Exception e) {
                 System.out.println("File not found");
             }
+
             pw.print("Name: " + name + ", ");
             pw.print("Total: " + newExam.getValue() + ", ");
             pw.print(newExam.storeScoreToCSV());
