@@ -111,7 +111,7 @@ public class MCMAQuestion extends MCQuestion
 
     public void save(PrintWriter writer)
     {
-        writer.println("MCMAAnswer");
+        writer.println("MCMAQuestion");
         writer.println(maxValue);
         writer.println(text);
         writer.println(baseCredit);

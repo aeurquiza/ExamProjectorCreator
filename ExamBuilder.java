@@ -81,7 +81,7 @@ public class ExamBuilder{
 
 		public static void addQuestion(Exam exam){
 			Scanner kin=new Scanner(System.in);
-			System.out.println("Which kind of question would you like to add, MCQuestion: MCMAQ, MCSAQuestion: MCSAQ, SAQuestion: SAQ");
+			System.out.println("Which kind of question would you like to add, MCQuestion: MCMAQ, MCSAQuestion: MCSAQ, SAQuestion: SAQ, NumQuestion: NumQ");
 			String questionType=kin.nextLine();
 			System.out.println("Enter the text of the question: ");
 			String questionText=kin.nextLine();
@@ -110,6 +110,15 @@ public class ExamBuilder{
 					SAQuestion saq=new SAQuestion(questionText,questionVal);
 					saq.setRightAnswer(new SAAnswer(rightAns));
 					exam.addQuestion(saq);
+					break;
+				case "NumQ":
+					System.out.println("What is the right answer: ");
+					Double rightAnsNum=Double.parseDouble(kin.nextLine());
+					System.out.println("What is the tolerance? ");
+					Double tolerance=Double.parseDouble(kin.nextLine());
+					NumQuestion naq=new NumQuestion(questionText,questionVal,tolerance);
+					naq.setRightAnswer(new NumAnswer(rightAnsNum));
+					exam.addQuestion(naq);
 					break;
 				default:
 				System.out.println("Not a valid question option. ");

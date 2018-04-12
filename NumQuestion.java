@@ -3,8 +3,8 @@ import java.io.PrintWriter;
 
 public class NumQuestion extends Question{
 		double tolerance;
-	public NumQuestion(String text, double maxValue, double pTolerance){
-		super(text,maxValue);
+	public NumQuestion(String text, double pMaxValue, double pTolerance){
+		super(text,pMaxValue);
 		tolerance=pTolerance;
 
 	}
@@ -30,7 +30,11 @@ public class NumQuestion extends Question{
 	}
 
 	public void save(PrintWriter pw){
-
+		pw.println("NumQuestion");
+		pw.println(maxValue);
+		pw.println(text);
+		rightAnswer.save(pw);
+		pw.println(tolerance);
 	}
 
 
