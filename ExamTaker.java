@@ -88,8 +88,9 @@ public class ExamTaker
 
                 if(mClientAnswers != null)
                 {
-                    System.out.println("Are you sure you want to save these answers? (answer <Yes> if you do)");
-                    if(mClientInput.nextLine().toLowerCase().trim() != "yes")
+                    System.out.print("Are you sure you want to save these answers? (answer <Yes> if you do): ");
+                    String response = mClientInput.nextLine().trim();
+                    if(!response.equalsIgnoreCase("yes"))
                     {
                         break;
                     }
@@ -99,9 +100,8 @@ public class ExamTaker
                     mExam.saveStudentAnswers(mClientAnswers);
                     mClientAnswers.flush();
                     System.out.println("Answers saved!");
+                    break;
                 }
-
-                break;
             
             case "quit":
                 mLooping = false;
