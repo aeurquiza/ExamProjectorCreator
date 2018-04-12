@@ -178,7 +178,7 @@ public class Exam {
 
 
     public void save(PrintWriter pw){
-        pw.write(title+"\n"+(new Date()).toString()+"\n\n");
+        pw.write(title+"\n\n");
         for(Question ques: questions){
             ques.save(pw);
             pw.write("\n");
@@ -203,8 +203,8 @@ public class Exam {
     }
 
     public void restoreStudentAnswers(Scanner scanner) {
-
-     
+        scanner.nextLine();
+        scanner.nextLine();
 
         for(int i = 0; i < questions.size(); ++i)
         {
