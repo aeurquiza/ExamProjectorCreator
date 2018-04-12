@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 import java.io.PrintWriter;
-
+import java.util.Date;
 public class Exam {
     private String title;
     private ArrayList<Question> questions;
@@ -176,7 +176,7 @@ public class Exam {
 
 
     public void save(PrintWriter pw){
-        pw.write(title+"\n\n");
+        pw.write(title+"\n"+(new Date()).toString()+"\n\n");
         for(Question ques: questions){
             ques.save(pw);
             pw.write("\n");
