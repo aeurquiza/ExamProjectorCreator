@@ -11,10 +11,8 @@ public class NumQuestion extends Question{
 
 	public NumQuestion(Scanner scanner){
 		super(scanner);
-        rightAnswer = new NumAnswer(scanner.nextDouble());
-        scanner.nextLine();
+        rightAnswer = new NumAnswer(scanner, false);
         tolerance= scanner.nextDouble();
-        scanner.nextLine();
 	}
 
 	public Answer getNewAnswer(){
@@ -53,7 +51,7 @@ public class NumQuestion extends Question{
 
     public void restoreStudentAnswers(Scanner scanner)
     {
-        studentAnswer = new SAAnswer(scanner);
+        studentAnswer = new NumAnswer(scanner);
     }
 
     public void printStudentAnswers(){

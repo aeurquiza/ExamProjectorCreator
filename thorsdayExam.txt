@@ -1,0 +1,31 @@
+MARQUISETEST
+
+MCSAQuestion
+5.0
+Who teaches CS342?
+3
+1.0 Bell
+0.0 Troy
+0.0 Lillis
+
+SAQuestion
+5.0
+What language is used in CS342?
+Java
+
+MCMAQuestion
+5.0
+Who created C++
+0.4
+4
+0.0 Theys
+0.0 Bell
+0.8 Stroustroup
+0.2 Stroustroups assistant
+
+NumQuestion
+5.0
+What is 5+5?
+10.0
+1.0
+

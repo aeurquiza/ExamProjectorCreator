@@ -15,7 +15,7 @@ public class MCSAQuestion extends MCQuestion
 
         for(int i = 0; i < amount; ++i)
         {
-            addAnswer(new MCSAAnswer(scanner));
+            addAnswer(new MCSAAnswer(scanner, false));
         }
 
     }

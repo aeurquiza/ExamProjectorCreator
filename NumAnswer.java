@@ -10,10 +10,39 @@ public class NumAnswer extends Answer
         this.value = value;
     }
 
-    public NumAnswer(Scanner scanner){
-        value=scanner.nextDouble();
-        scanner.nextLine();
+    public NumAnswer(Scanner scanner, boolean ignore)
+   {
+       value=scanner.nextDouble();
+       scanner.nextLine();
+   }
+    
+     public NumAnswer(Scanner scanner)
+    {
+        if(!scanner.hasNext())
+        {
+           return;
+        }
+
+        String line = scanner.nextLine();
+
+        while(true)
+        {
+            if(line.equalsIgnoreCase("NumAnswer"))
+            {
+                 value=scanner.nextDouble();
+                scanner.nextLine();
+                return;
+            }
+
+            if(!scanner.hasNext())
+            {
+                return;
+            }
+
+            line = scanner.nextLine();
+        }
     }
+    
 
     public void print()
     {

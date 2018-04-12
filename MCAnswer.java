@@ -14,15 +14,53 @@ public abstract class MCAnswer extends Answer
         selected = false;
     }
 
-    public MCAnswer(Scanner scanner)
+    public MCAnswer(Scanner scanner, boolean ignore)
     {
-       if(scanner.hasNextDouble())
+        if(scanner.hasNextDouble())
         {
             this.creditIfSelected = scanner.nextDouble();
         }
         if(scanner.hasNextLine())
         {
             this.text = scanner.nextLine();
+        }
+    }
+    
+    public MCAnswer(Scanner scanner)
+    {
+        if(!scanner.hasNextLine())
+        {
+           return;
+        }
+
+        String line = scanner.nextLine();
+        System.out.println("Phase 0: " + line);
+
+        while(true)
+        {
+            if(line.equalsIgnoreCase("MCMAAnswer") || line.equalsIgnoreCase("MCSAAnswer"))
+            {
+                System.out.println("made it: " + line);
+                 if(scanner.hasNextDouble())
+                {
+                    this.creditIfSelected = scanner.nextDouble();
+                    System.out.println("credit: " + this.creditIfSelected);
+                }
+                if(scanner.hasNextLine())
+                {
+                    this.text = scanner.nextLine();
+                    System.out.println("text: " + this.text);
+                }
+                return;
+            }
+
+            if(!scanner.hasNextLine())
+            {
+                return;
+            }
+
+            line = scanner.nextLine();
+            System.out.println("Phase 1: " + line);
         }
     }
 

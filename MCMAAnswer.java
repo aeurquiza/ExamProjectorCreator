@@ -13,6 +13,11 @@ public class MCMAAnswer extends MCAnswer
         super(scanner);
     }
 
+    public MCMAAnswer(Scanner scanner, boolean ignore)
+    {
+        super(scanner, ignore);
+    }
+
     public double getCredit(Answer rightAnswer)
     {
         return 1.0;

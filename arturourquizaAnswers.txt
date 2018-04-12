@@ -4,14 +4,14 @@ Wed Apr 11 22:03:57 CDT 2018
 
 MCMAAnswer
 2
-Yes
-Maybe
+2.0 Yes
+2.0 Maybe
 
 SAAnswer
 Stroustroup
 
 MCSAAnswer
-Real Madrid
+2.0 Real Madrid
 
 NumAnswer
 74000.0

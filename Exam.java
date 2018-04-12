@@ -203,16 +203,9 @@ public class Exam {
     }
 
     public void restoreStudentAnswers(Scanner scanner) {
-        scanner.nextLine();
-        scanner.nextLine();
-
         for(int i = 0; i < questions.size(); ++i)
         {
             questions.get(i).restoreStudentAnswers(scanner);
-            if(scanner.hasNext())
-            {
-                scanner.nextLine();
-            }
         }
     }
 

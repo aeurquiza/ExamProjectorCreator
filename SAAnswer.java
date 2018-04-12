@@ -9,9 +9,35 @@ public class SAAnswer extends Answer
         this.text = text;
     }
 
+   public SAAnswer(Scanner scanner, boolean ignore)
+   {
+       this.text = scanner.nextLine();
+   }
+    
     public SAAnswer(Scanner scanner)
     {
-        this.text = scanner.nextLine();
+        if(!scanner.hasNext())
+        {
+           return;
+        }
+
+        String line = scanner.nextLine();
+
+        while(true)
+        {
+            if(line.equalsIgnoreCase("SAAnswer"))
+            {
+                this.text = scanner.nextLine();
+                return;
+            }
+
+            if(!scanner.hasNext())
+            {
+                return;
+            }
+
+            line = scanner.nextLine();
+        }
     }
 
     public void print()

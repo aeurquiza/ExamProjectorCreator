@@ -11,7 +11,7 @@ public class SAQuestion extends Question
     public SAQuestion(Scanner scanner)
     {
         super(scanner);
-        rightAnswer = new SAAnswer(scanner.nextLine());
+        rightAnswer = new SAAnswer(scanner,false);
     }
 
     public Answer getNewAnswer()

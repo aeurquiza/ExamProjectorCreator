@@ -21,9 +21,10 @@ public class MCMAQuestion extends MCQuestion
         baseCredit = scanner.nextDouble();
         
         int amount = scanner.nextInt();
+
         for(int i = 0; i < amount; ++i)
         {
-            addAnswer(new MCMAAnswer(scanner));
+            addAnswer(new MCMAAnswer(scanner, false));
         }
 
         studentAnswers = new ArrayList<Answer>();
@@ -140,20 +141,39 @@ public class MCMAQuestion extends MCQuestion
 
     public void restoreStudentAnswers(Scanner scanner)
     {
-        scanner.nextLine();
-        if(!scanner.hasNextInt())
+        if(!scanner.hasNext())
         {
-            return;
+           return;
         }
-        
-        int amount = scanner.nextInt();
-        scanner.nextLine();
 
-        for(int i = 0; i < amount; ++i)
+        String line = scanner.nextLine();
+
+        while(true)
         {
-            studentAnswers.add(new MCMAAnswer(scanner));
+            if(line.equalsIgnoreCase("MCMAAnswer"))
+            {
+                 if(!scanner.hasNextInt())
+                {
+                    return;
+                }
+        
+                int amount = scanner.nextInt();
+                scanner.nextLine();
+
+                for(int i = 0; i < amount; ++i)
+                {
+                    studentAnswers.add(new MCMAAnswer(scanner,false));
+                }
+                return;
+            }
+
+            if(!scanner.hasNext())
+            {
+                return;
+            }
+
+            line = scanner.nextLine();
         }
-        scanner.nextLine();
     }
 
 

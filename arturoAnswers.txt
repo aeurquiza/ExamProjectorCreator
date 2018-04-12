@@ -1,0 +1,18 @@
+arturo
+thorsdayExam.txt
+Thu Apr 12 20:19:47 GMT 2018
+
+MCSAAnswer
+1.0  Bell
+
+SAAnswer
+Java
+
+MCMAAnswer
+2
+0.8  Stroustroup
+0.2  Stroustroups assistant
+
+NumAnswer
+10.0
+

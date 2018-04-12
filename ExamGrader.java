@@ -44,7 +44,6 @@ public class ExamGrader {
 
             Exam newExam = new Exam(eInput);
             newExam.print();
-            aInput.nextLine();
             newExam.restoreStudentAnswers(aInput);
             newExam.reportQuestionValues();
 

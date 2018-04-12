@@ -8,6 +8,11 @@ public class MCSAAnswer extends MCAnswer
         super(text, creditIfSelected);
     }
 
+    public MCSAAnswer(Scanner scanner, boolean ignore)
+    {
+        super(scanner, ignore);
+    }
+    
     public MCSAAnswer(Scanner scanner)
     {
         super(scanner);
