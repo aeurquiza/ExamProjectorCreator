@@ -1,0 +1,15 @@
+howard
+ExamCopy.txt
+Thu Apr 12 01:07:14 GMT 2018
+
+MCSAAnswer
+1.0  Peanut
+
+MCMAAnswer
+2
+0.2  Rubeus
+0.2  Harry
+
+SAAnswer
+Info Hiding
+

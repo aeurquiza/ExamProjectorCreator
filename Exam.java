@@ -47,7 +47,7 @@ public class Exam {
     {
         for(int i = 0; i < questions.size(); i++)
         {
-            System.out.print("Question " + i + ": ");
+            System.out.print("Question " + (i + 1) + ": ");
             questions.get(i).printStudentAnswers();
         }
     }
