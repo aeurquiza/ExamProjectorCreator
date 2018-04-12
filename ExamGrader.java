@@ -31,7 +31,6 @@ public class ExamGrader {
 
             String name = aInput.nextLine();
             String examFileName = aInput.nextLine();
-            System.out.println(examFileName);
 
             Scanner eInput = null;
             //String fExam = null;
@@ -44,9 +43,9 @@ public class ExamGrader {
             }
 
             Exam newExam = new Exam(eInput);
+            newExam.print();
             aInput.nextLine();
             newExam.restoreStudentAnswers(aInput);
-            newExam.printStudentAnswers(); 
             newExam.reportQuestionValues();
 
             //---------------------------------------
