@@ -31,6 +31,7 @@ public class Exam {
     }
 
 
+
     public void print(){
         System.out.println("Authors: Marquise Howard, Arturo Urquiza, Allan Velednitskiy");
         System.out.println("NetIds: mhowar27 ,aurqui8, aveled2\n");
@@ -203,9 +204,7 @@ public class Exam {
 
     public void restoreStudentAnswers(Scanner scanner) {
 
-        scanner.nextLine();
-        scanner.nextLine();
-        scanner.nextLine();
+     
 
         for(int i = 0; i < questions.size(); ++i)
         {
