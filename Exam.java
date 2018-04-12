@@ -23,6 +23,7 @@ public class Exam {
                     break;
                 case "MCMAQuestion": addQuestion(new MCMAQuestion(fin));
                     break;
+                case "NumQuestion": addQuestion(new NumQuestion(fin));
             }
             
         }

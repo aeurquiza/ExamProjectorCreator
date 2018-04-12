@@ -22,11 +22,13 @@ public class NumQuestion extends Question{
 	}
 
 	public void getAnswerFromStudent(){
-
+		Scanner client=new Scanner(System.in);
+		Double input=Double.parseDouble(client.nextLine());
+		studentAnswer=new NumAnswer(input);
 	}
 
 	public double getValue(){
-		return 0;
+		return super.getValue();
 	}
 
 	public void save(PrintWriter pw){
@@ -52,6 +54,23 @@ public class NumQuestion extends Question{
     public void restoreStudentAnswers(Scanner scanner)
     {
         studentAnswer = new SAAnswer(scanner);
+    }
+
+    public void printStudentAnswers(){
+    	        if(studentAnswer == null)
+        {
+            System.out.println("Your answer:");
+            System.out.println("    You have not answered this question");
+            return;
+        }
+
+        if(studentAnswer instanceof NumAnswer)
+        {
+            NumAnswer ans = (NumAnswer)studentAnswer;
+            System.out.println("Your answer:");
+            System.out.println("    "  + ans.value);
+        }
+
     }
 
 

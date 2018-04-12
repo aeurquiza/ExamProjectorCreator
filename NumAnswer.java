@@ -25,7 +25,7 @@ public class NumAnswer extends Answer
         if( rightAnswer instanceof NumAnswer )
         {
             NumAnswer correctAnswer = (NumAnswer)rightAnswer;
-            if( correctAnswer.value == correctAnswer.value )
+            if( correctAnswer.value == value )
             {
                 return 1.0;
             }
