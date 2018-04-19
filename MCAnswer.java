@@ -69,6 +69,9 @@ public abstract class MCAnswer extends Answer
         System.out.println(text);
     }
 
+    public String getString(){
+        return text;
+    }
     public void setSelected(boolean selected)
     {
         this.selected = selected;

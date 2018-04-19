@@ -1,25 +1,29 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+
 
 public class ExamBuilder{
+	public static JFrame frame;
+
 	public static void main(String[] args){
+		frame=new JFrame();
 		Exam test=null;
 		Scanner kin=new Scanner(System.in); 
-
-		System.out.println("Select one of the following: Load a saved Exam from a file - L , Add questions interactively - AQ , "+
-		" Remove questions interactively - R , Reorder questions, and/or answers - RQ , Print the exam - P , Save the exam - S , or Quit - Q");
-
+		JOptionPane.showMessageDialog(frame,"Welcome to Exam Builder! Press ok to continue.");
+		String[] options={"L","AQ","R","RQ","P","S","Q"};
+		String optionString="Select one of the following:\n ------- Load a saved Exam from a file - L \n ------- Add questions interactively - AQ \n "+
+		"------- Remove questions interactively - R \n ------- Reorder questions, and/or answers - RQ \n ------- Print the exam - P \n ------- Save the exam - S , or Quit - Q";
+		
 		query_user: while(true){
 
-			System.out.println("What would you like to do: ");
-
-			String response=kin.nextLine().trim();
+			int responseIndex=JOptionPane.showOptionDialog(frame,optionString, "Choose one:", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null,options,"Option 1");
 			
-			switch (response.toUpperCase()){
-				case "L":	System.out.println("Enter the name of the file to load exam from: ");
-							try{
-						  	File examFile=new File(kin.nextLine().trim());
+			switch (options[responseIndex].toUpperCase()){
+				case "L":	try{
+						  	File examFile=new File(JOptionPane.showInputDialog(frame, "Enter the name of the file to load exam from: "));
 							test=new Exam(new Scanner(examFile));
 							}
 							catch(Exception e){}
@@ -27,52 +31,45 @@ public class ExamBuilder{
 
 				case "AQ":	
 							if(test==null){
-								System.out.println("We are creating a new exam... .... .... ...");
-								System.out.println("What would you like the title of the exam to be");
-								String title=kin.nextLine();
+								JOptionPane.showMessageDialog(frame,"We are creating a new exam... .... .... ...");
+								String title=JOptionPane.showInputDialog(frame,"What would you like the title of the exam to be");
 								test=new Exam(title);
 							}
 							addQuestion(test);
 							break;
 
-				case "R": System.out.println("Remove questions");
+				case "R": 
 							if(test==null)
-								System.out.println("You have not loaded an exam. ");
+								JOptionPane.showMessageDialog(frame,"You have not loaded an exam. ");
 							else{
-								int index=Integer.parseInt(kin.nextLine());
+								int index=Integer.parseInt(JOptionPane.showInputDialog("Enter the index for the question you would like to remove: "));
 								test.removeQuestion(index);
 							}
 							break;
 
-				case "RQ":	System.out.println("Would you like to reorder questions: q , MCanswers: a");
-							String reorder=kin.nextLine();
+				case "RQ":	String reorder=JOptionPane.showInputDialog(frame,"Would you like to reorder questions: q , MCanswers: a");
 							if(reorder.equalsIgnoreCase("q"))
 								test.reorderQuestions();
 							else
 								if(reorder.equalsIgnoreCase("a")){
-									System.out.println("Specify which question index you would like to reorder answers for. Enter -1 to reorder all: ");
-									test.reorderMCAnswers(Integer.parseInt(kin.nextLine().trim()));
+									test.reorderMCAnswers(Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter the value for which question to reorder answer for. Enter -1 to reorder all.")));
 								}
 							break;
 
-				case "P": System.out.println("Printing the exam");
-							test.print();
-							System.out.println("\n\n");
+				case "P":   JOptionPane.showMessageDialog(new JFrame(),test.getString());
 							break;
 
-				case "S": System.out.println("Enter file name to save exam to: ");
+				case "S": 
 							try{
-							File saveFile=new File(kin.nextLine().trim());
+							File saveFile=new File(JOptionPane.showInputDialog(frame,"Please enter the file name to save exam to: "));
 							PrintWriter pw=new PrintWriter(saveFile);
 							test.save(pw);
 							}
 							catch(Exception e){}
 							break;
 
-				case "Q": System.out.println("Quitting");
+				case "Q": JOptionPane.showMessageDialog(frame,"Quitting");
 							break query_user;
-				default:
-					System.out.println("Not a valid command. Try again. ");
 
 			}
 
@@ -80,59 +77,44 @@ public class ExamBuilder{
 	}
 
 		public static void addQuestion(Exam exam){
-			Scanner kin=new Scanner(System.in);
-			System.out.println("Which kind of question would you like to add, MCQuestion: MCMAQ, MCSAQuestion: MCSAQ, SAQuestion: SAQ, NumQuestion: NumQ");
-			String questionType=kin.nextLine();
-			System.out.println("Enter the text of the question: ");
-			String questionText=kin.nextLine();
-			System.out.println("Enter the max value of the question: ");
-			double questionVal=Double.parseDouble(kin.nextLine());
+			String questionType=JOptionPane.showInputDialog(frame,"Which kind of question would you like to add, \n 	MCQuestion: MCMAQ \n 	MCSAQuestion: MCSAQ \n 		SAQuestion: SAQ \n 		NumQuestion: NumQ");
+			String questionText=JOptionPane.showInputDialog(frame,"Enter the text of the question: ");
+			double questionVal=Double.parseDouble(JOptionPane.showInputDialog(frame,"Enter the max value for he question: "));
 			switch(questionType){
 				case "MCMAQ":
-					System.out.println("Enter the base credit:" );
-					double baseCredit=Double.parseDouble(kin.nextLine());
-					System.out.println("How many answers does this question have: ");
-					int ansCount=Integer.parseInt(kin.nextLine());
+					double baseCredit=Double.parseDouble(JOptionPane.showInputDialog(frame,"Enter the base credit:"));
+					int ansCount=Integer.parseInt(JOptionPane.showInputDialog(frame,"How many answers does this question have:"));
 					MCMAQuestion mcmaq=new MCMAQuestion(questionText,questionVal, baseCredit);
 					addAnswers(mcmaq,ansCount);
 					exam.addQuestion(mcmaq);
 					break;
 				case "MCSAQ":
-					System.out.println("How many answers does this question have: ");
-					int ans=Integer.parseInt(kin.nextLine());
+					int ans=Integer.parseInt(JOptionPane.showInputDialog(frame,"How many answers does this question have:"));
 					MCSAQuestion mcsaq=new MCSAQuestion(questionText,questionVal);
 					addAnswers(mcsaq,ans);
 					exam.addQuestion(mcsaq);
 					break;
 				case "SAQ":
-					System.out.println("What is the right answer: ");
-					String rightAns=kin.nextLine();
+					String rightAns=JOptionPane.showInputDialog(frame,"What is the right answer: ");
 					SAQuestion saq=new SAQuestion(questionText,questionVal);
 					saq.setRightAnswer(new SAAnswer(rightAns));
 					exam.addQuestion(saq);
 					break;
 				case "NumQ":
-					System.out.println("What is the right answer: ");
-					Double rightAnsNum=Double.parseDouble(kin.nextLine());
-					System.out.println("What is the tolerance? ");
-					Double tolerance=Double.parseDouble(kin.nextLine());
+					Double rightAnsNum=Double.parseDouble(JOptionPane.showInputDialog(frame,"What is the right answer: "));
+					Double tolerance=Double.parseDouble(JOptionPane.showInputDialog(frame,"What is the tolerance? "));
 					NumQuestion naq=new NumQuestion(questionText,questionVal,tolerance);
 					naq.setRightAnswer(new NumAnswer(rightAnsNum));
 					exam.addQuestion(naq);
 					break;
-				default:
-				System.out.println("Not a valid question option. ");
-
 			}
 		}
 
 		public static void addAnswers(MCQuestion mcq, int amount){
 			Scanner kin=new Scanner(System.in);
 			for(int i=0;i<amount;i++){
-				System.out.println("Answer #"+(i+1)+": \n Enter the text of the answer: " );
-				String ansText=kin.nextLine();
-				System.out.println("Enter the credit if selected: ");
-				double cis=Double.parseDouble(kin.nextLine());
+				String ansText=JOptionPane.showInputDialog(frame,"Answer #"+(i+1)+": \n Enter the text of the answer: " );
+				double cis=Double.parseDouble(JOptionPane.showInputDialog(frame,"Enter the credit if selected: "));
 				if(mcq instanceof MCMAQuestion)
 				{
 					//mcq.addAnswer(((MCMAQuestion)mcq).getNewAnswer(ansText,cis)); // really....

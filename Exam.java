@@ -31,6 +31,18 @@ public class Exam {
     }
 
 
+    public String getString(){
+        String examString="Authors: Marquise Howard, Arturo Urquiza, Allan Velednitskiy \n";
+        examString+="NetIds: mhowar27 ,aurqui8, aveled2\n\n";
+        examString+="                " + title;
+        examString+="\n\n";
+        for(int i=0;i < questions.size();i++){
+            examString+=(i+1)+". ";
+            examString+=questions.get(i).getString();
+            examString+="\n\n";
+        }
+        return examString;
+    }
 
     public void print(){
         System.out.println("Authors: Marquise Howard, Arturo Urquiza, Allan Velednitskiy");

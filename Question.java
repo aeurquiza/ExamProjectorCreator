@@ -37,6 +37,10 @@ public abstract class Question
 
     }
 
+    public String getString(){
+        return text;
+    }
+
     protected void printStudentAnswers()
     {
        System.out.println("     You have not answered this question");

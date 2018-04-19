@@ -1,0 +1,28 @@
+Sample Exam Title
+
+MCMAQuestion
+5.0
+Who went to Hogwarts?  Circle all that apply:
+0.4
+5
+0.2  Tom
+-0.2  Bilbo
+0.2  Rubeus
+0.2  Harry
+-0.2  Princess
+
+MCSAQuestion
+5.0
+What do you put on a peanut butter and jelly sandwich?
+5
+0.0  Horseradish
+1.0  Peanut
+0.5  Jelly
+0.5  Peanut
+0.0  Onions
+
+SAQuestion
+5.0
+What OO principle is implemented with private variables?
+Information Hiding
+

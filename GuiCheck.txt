@@ -1,0 +1,18 @@
+Sample Exam Title
+
+SAQuestion
+5.0
+What OO principle is implemented with private variables?
+Information Hiding
+
+MCMAQuestion
+5.0
+Who went to Hogwarts?  Circle all that apply:
+0.4
+5
+-0.2  Princess
+-0.2  Bilbo
+0.2  Tom
+0.2  Harry
+0.2  Rubeus
+

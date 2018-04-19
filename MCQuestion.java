@@ -29,6 +29,15 @@ public abstract class MCQuestion extends Question
 
     }
 
+    public String getString(){ 
+        String qString=text+"\n";
+        for(int i=0; i < answers.size(); i++){
+            qString+="      "+((char)('A'+ i))+") ";
+            qString+=answers.get(i).getString()+"\n";
+        }
+        return qString;
+    }
+
     public void addAnswer(MCAnswer answer)
     {
         answers.add(answer);
