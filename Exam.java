@@ -188,6 +188,20 @@ public class Exam {
     System.out.println("____________________________");
     }
 
+    public String getReport(){
+
+        String reportString = "____________________________ \n";
+
+        for(int i=0; i<questions.size();i++) {
+            reportString += "| Question #" + (i + 1) + " | value: " + questions.get(i).getValue() + " |";
+            reportString += "\n";
+        }
+
+        reportString += "____________________________ \n";
+
+        return reportString;
+    }
+
 
     public void save(PrintWriter pw){
         pw.write(title+"\n\n");
