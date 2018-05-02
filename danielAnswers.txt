@@ -1,0 +1,18 @@
+danielAnswers.txt
+ExamCopy.txt
+Wed May 02 02:16:36 GMT 2018
+
+MCSAAnswer
+0.0  Onions
+
+MCMAAnswer
+2
+0.2  Harry
+0.2  Rubeus
+
+SAAnswer
+Infor hiding?
+
+NumAnswer
+50000.0
+

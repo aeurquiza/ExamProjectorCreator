@@ -245,4 +245,9 @@ public class Exam {
         }
         return s;
     }
+
+    public ArrayList<Question> getQuestions()
+    {
+        return questions;
+    }
 }

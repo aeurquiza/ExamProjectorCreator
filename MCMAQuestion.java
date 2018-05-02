@@ -70,6 +70,28 @@ public class MCMAQuestion extends MCQuestion
         
     }
 
+    public void setStudentAnswer(int pos)
+    {
+        int index = pos;
+        
+        if(studentAnswers == null)
+        {
+            studentAnswers = new ArrayList<Answer>();
+        }
+
+        MCMAAnswer answer = (MCMAAnswer)answers.get(index);
+
+        if(studentAnswers.contains(answer))
+        {
+            studentAnswers.remove(answer);
+        }
+        else
+        {
+            studentAnswers.add(answer);
+        }
+        
+    }
+
     public double getValue()
     {
         double total_value = 0.0;

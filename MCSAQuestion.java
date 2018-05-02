@@ -56,6 +56,21 @@ public class MCSAQuestion extends MCQuestion
         studentAnswer = answer;
     }
 
+     public void setStudentAnswer(int pos)
+    {
+        int index = pos;
+        
+        MCSAAnswer answer;
+        if((studentAnswer != null) && studentAnswer instanceof MCSAAnswer)
+        {
+            answer = (MCSAAnswer)studentAnswer;
+            answer.setSelected(false);
+        }
+        answer = (MCSAAnswer) answers.get(index);
+        answer.setSelected(true);
+        studentAnswer = answer;
+    }
+
     public double getValue()
     {
         if(studentAnswer == null)

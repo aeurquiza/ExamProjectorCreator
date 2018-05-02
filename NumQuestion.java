@@ -16,7 +16,12 @@ public class NumQuestion extends Question{
 	}
 
 	public Answer getNewAnswer(){
-		return null;
+		return new NumAnswer(0.0);
+	}
+
+	public Answer getNewAnswer(double val)
+	{
+		return new NumAnswer(val);
 	}
 
 	public void getAnswerFromStudent(){

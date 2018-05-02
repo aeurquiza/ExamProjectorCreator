@@ -26,3 +26,8 @@ SAQuestion
 What OO principle is implemented with private variables?
 Information Hiding
 
+NumQuestion
+5.0
+Average income in the United States:
+74000.0
+1.0
