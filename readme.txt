@@ -4,7 +4,7 @@ Class: CS 342
 
 
 /************************/
-/    Program 4 Readme    /
+/    Program 5 Readme    /
 /************************/
 
 
@@ -39,9 +39,10 @@ It will then save the students answers to a file where it will have:
 Followed by the answers.
 
 
-Exam Grader will input both the exam and student answers and make sure to compare them based on the second line where it has the exam file name. 
-Then it will evaluate the answers and display them on the screen.
+Exam Grader will ask for the student answers text and make sure to compare them to the exam based on the second line where it has the exam file name. 
+Then it will display the exam while it evaluate the answers and then display them on the next prompt.
 Then there will be a prompt for the user to enter the name of a CSV file they want to store the data in.
+The user can then either continue and grade another exam by pressing any key or quit by typing in 'q' or 'Q'.
 
 Allan - ExamGrader
 Arturo - ExamBuilder
